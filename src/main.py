@@ -1,5 +1,12 @@
 import sys
+import os
+
+# Add the parent directory of 'src' to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 from src.utils import validate_url, fetch_url_data
+
 
 def main():
     input_stream = sys.stdin
@@ -24,3 +31,6 @@ def main():
                 error_stream.write(f"An unexpected error occurred for {url}: {str(e)}\n")
         else:
             error_stream.write(f"Invalid URL: {url}\n")
+
+if __name__ == "__main__":
+    main()

@@ -26,7 +26,6 @@ class TestMainFunction(unittest.TestCase):
 
         main()
 
-        # Debugging: print what was captured in stdout
         output = mock_stdout.getvalue()
 
         self.assertIn('https://www.example.com', output)

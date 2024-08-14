@@ -11,6 +11,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,4 +28,6 @@ jobs:
 
       - name: Run main code
         run: |
-          python -m src.main < urls.txt
+          cat urls.txt  # print the contents to verify it's available
+          python3 src/main.py < urls.txt
+
