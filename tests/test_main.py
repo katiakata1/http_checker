@@ -3,6 +3,7 @@ from unittest.mock import patch, Mock
 import io
 import sys
 from src.main import main
+import json
 
 class TestMainFunction(unittest.TestCase):
 
@@ -26,13 +27,21 @@ class TestMainFunction(unittest.TestCase):
 
         main()
 
-        output = mock_stdout.getvalue()
+        # output = mock_stdout.getvalue()
+        output = mock_stdout.getvalue().strip()
+        results = json.loads(output)
 
-        self.assertIn('https://www.example.com', output)
-        self.assertIn('200', output)
-        self.assertIn('1234', output)
-        self.assertIn('50ms', output)
-        self.assertIn('Mon, 01 Jan 2024 00:00:00 GMT', output)
+        # self.assertIn('https://www.example.com', output)
+        # self.assertIn('200', output)
+        # self.assertIn('1234', output)
+        # self.assertIn('50ms', output)
+        # self.assertIn('Mon, 01 Jan 2024 00:00:00 GMT', output)
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]['url'], 'https://www.example.com')
+        self.assertEqual(results[0]['statusCode'], 200)
+        self.assertEqual(results[0]['contentLength'], 1234)
+        self.assertEqual(results[0]['requestDuration'], '50ms')
+        self.assertEqual(results[0]['date'], 'Mon, 01 Jan 2024 00:00:00 GMT')
 
         # Check that no errors were written to stderr
         self.assertEqual(mock_stderr.getvalue(), '')

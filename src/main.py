@@ -1,5 +1,6 @@
 import sys
 import os
+import json
 
 # Add the parent directory of 'src' to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -13,6 +14,8 @@ def main():
     output_stream = sys.stdout
     error_stream = sys.stderr
 
+    results = []
+
     for line in input_stream:
         url = line.strip()
 
@@ -22,15 +25,20 @@ def main():
                 if 'error' in data:
                     error_stream.write(f"Failed to fetch data for {url}: {data['error']}\n")
                 else:
-                    output_stream.write(f"URL: {data['url']}\n")
-                    output_stream.write(f"Status Code: {data['statusCode']}\n")
-                    output_stream.write(f"Content Length: {data['contentLength']}\n")
-                    output_stream.write(f"Request Duration: {data['requestDuration']}\n")
-                    output_stream.write(f"Date: {data['date']}\n")
+                    result = {
+                        'url': data['url'],
+                        'statusCode': data['statusCode'],
+                        'contentLength': data['contentLength'],
+                        'requestDuration': data['requestDuration'],
+                        'date': data['date']
+                    }
+                    results.append(result)
             except Exception as e:
                 error_stream.write(f"An unexpected error occurred for {url}: {str(e)}\n")
         else:
             error_stream.write(f"Invalid URL: {url}\n")
+    
+    json.dump(results, output_stream, indent=2)
 
 if __name__ == "__main__":
     main()
