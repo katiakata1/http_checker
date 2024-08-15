@@ -28,8 +28,7 @@ class TestMainFunction(unittest.TestCase):
             # No need to specify for invalid URL, mock_validate_url returns False
             {
                 'url': 'http://not.exists.bbc.co.uk/',
-                'statusCode': 504,
-                'date': 'Wed, 19 Jun 2024 15:16:33 GMT'
+                'error': 'HTTPConnectionPool(host=\'not.exists.bbc.co.uk\', port=80): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x100985160>: Failed to resolve \'not.exists.bbc.co.uk\' ([Errno 8] nodename nor servname provided, or not known)"))'
             }
         ]
 
@@ -65,7 +64,7 @@ class TestMainFunction(unittest.TestCase):
 
         # Validate errors
         self.assertIn('Invalid URL: bad://address', stderr)
-        self.assertIn('Failed to fetch data for http://not.exists.bbc.co.uk/:', stderr)
+        self.assertIn('Error fetching data for http://not.exists.bbc.co.uk/:', stderr)
 
 
 
