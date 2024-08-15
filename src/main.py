@@ -14,10 +14,10 @@ def main():
     output_stream = sys.stdout
     error_stream = sys.stderr
 
+    results = []
+
     for line in input_stream:
         url = line.strip()
-
-        results = []
 
         if validate_url(url):
             try:
