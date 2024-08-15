@@ -23,7 +23,10 @@ def main():
             try:
                 data = fetch_url_data(url)
                 if 'error' in data:
-                    error_stream.write(f"Failed to fetch data for {url}: {data['error']}\n")
+                    result = {
+                        'url': url,
+                        'error': data['error']
+                    }
                 else:
                     result = {
                         'url': data['url'],
@@ -34,9 +37,15 @@ def main():
                     }
                     results.append(result)
             except Exception as e:
-                error_stream.write(f"An unexpected error occurred for {url}: {str(e)}\n")
+                results.append({
+                    'url': url,
+                    'error': f'An unexpected error occurred: {str(e)}'
+                })
         else:
-            error_stream.write(f"Invalid URL: {url}\n")
+            results.append({
+                'url': url,
+                'error': 'invalid url'
+            })
     
     json.dump(results, output_stream, indent=2)
 
