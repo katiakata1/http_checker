@@ -32,7 +32,8 @@ def main():
                         'statusCode': 504, 
                         'date': 'Wed, 19 Jun 2024 15:16:33 GMT', 
                     }
-                    print(f"Error fetching data for {url}: {data['error']}", file=error_stream)
+                    error_message = f"Error fetching data for {url}: {data['error']}\n"
+                    error_stream.write(error_message)
                 else:
                     result = {
                         'url': data['url'],
@@ -49,14 +50,16 @@ def main():
                     'date': 'Wed, 19 Jun 2024 15:16:33 GMT'  # Hardcoded date
                 }
                 results.append(result)
-                print(f"Exception occurred for {url}: {str(e)}", file=error_stream)
+                error_message = f"Exception occurred for {url}: {str(e)}\n"
+                error_stream.write(error_message)
         else:
             result = {
                 'url': url,
                 'error': 'invalid url',
             }
             results.append(result)
-            print(f"Invalid URL: {url}", file=error_stream)
+            error_message = f"Invalid URL: {url}\n"
+            error_stream.write(error_message)
     
     json.dump(results, output_stream, indent=2)
 
