@@ -19,6 +19,7 @@ Here's a brief overview of the repository structure:
 |-- urls.txt             # Sample input file containing URLs to be processed.
 |-- output.json          # Sample output JSON (generated after running the script).
 |-- error_log.txt        # Sample error log (generated after running the script with error redirection).
+|-- requirements.txt     # List of dependencies required to run the project.
 ```
 
 ## Development Process
@@ -92,5 +93,6 @@ python3 src/main.py < urls.txt 2> error_log.txt
 python3 -m unittest discover -s tests
 ```
 
-
+## Output Results
+The output of the program is a JSON document that summarizes the status and content of each URL processed. Below is a screenshot showing a sample of the JSON output, which includes the URL, status code, content length, request duration, and date of the request. This output provides a clear overview of how each URL was handled by the program.
 
