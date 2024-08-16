@@ -20,6 +20,7 @@ Here's a brief overview of the repository structure:
 |-- output.json          # Sample output JSON (generated after running the script).
 |-- error_log.txt        # Sample error log (generated after running the script with error redirection).
 |-- requirements.txt     # List of dependencies required to run the project.
+|
 |-- .github/
 |   |-- workflows/
 |       |-- python-main.yml   # GitHub Actions workflow for running the main script.
@@ -114,5 +115,5 @@ You can view the testing outputs and actual program outputs directly in the **Gi
 
 
 ## Output Results
-The output of the program is a JSON document that summarizes the status and content of each URL processed. Below is a screenshot showing a sample of the JSON output, which includes the URL, status code, content length, request duration, and date of the request. This output provides a clear overview of how each URL was handled by the program.
+The output of the program is a JSON document that summarizes the status and content of each URL processed. Check the stdout and stderr outputs in `output.json` and `error_log.txt`. Stdout shows the JSON output, which includes the URL, status code, content length, request duration, and date of the request. Stderr shows the error message from invalid URLs. This output provides a clear overview of how each URL was handled by the program.
 
