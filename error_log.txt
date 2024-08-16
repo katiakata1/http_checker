@@ -1,0 +1,2 @@
+Invalid URL: bad://address
+Error fetching data for http://not.exists.bbc.co.uk/: HTTPConnectionPool(host='not.exists.bbc.co.uk', port=80): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x1048f6cc0>: Failed to resolve 'not.exists.bbc.co.uk' ([Errno 8] nodename nor servname provided, or not known)"))
