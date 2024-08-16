@@ -1,0 +1,67 @@
+[
+  {
+    "url": "https://www.bbc.co.uk/iplayer",
+    "statusCode": 200,
+    "contentLength": 0,
+    "requestDuration": "113ms",
+    "date": "Fri, 16 Aug 2024 08:56:19 GMT"
+  },
+  {
+    "url": "bad://address",
+    "error": "invalid url"
+  },
+  {
+    "url": "http://not.exists.bbc.co.uk/",
+    "statusCode": 504,
+    "date": "Wed, 19 Jun 2024 15:16:33 GMT"
+  },
+  {
+    "url": "https://www.bbc.co.uk/notexist",
+    "statusCode": 404,
+    "contentLength": 32408,
+    "requestDuration": "152ms",
+    "date": "Fri, 16 Aug 2024 08:56:20 GMT"
+  },
+  {
+    "url": "https://google.com",
+    "statusCode": 200,
+    "contentLength": 0,
+    "requestDuration": "181ms",
+    "date": "Fri, 16 Aug 2024 08:56:20 GMT"
+  },
+  {
+    "url": "http://www.bbc.co.uk/",
+    "statusCode": 200,
+    "contentLength": 75983,
+    "requestDuration": "106ms",
+    "date": "Fri, 16 Aug 2024 08:56:20 GMT"
+  },
+  {
+    "url": "https://www.bbc.co.uk/missing/thing",
+    "statusCode": 404,
+    "contentLength": 32408,
+    "requestDuration": "177ms",
+    "date": "Fri, 16 Aug 2024 08:56:20 GMT"
+  },
+  {
+    "url": "https://go.dev/dl/",
+    "statusCode": 200,
+    "contentLength": 0,
+    "requestDuration": "1026ms",
+    "date": "Fri, 16 Aug 2024 08:56:20 GMT"
+  },
+  {
+    "url": "https://ichef.bbci.co.uk/news/976/cpsprodpb/0DAA/production/_107889430_kittensthree.jpg",
+    "statusCode": 200,
+    "contentLength": 88090,
+    "requestDuration": "71ms",
+    "date": "Fri, 16 Aug 2024 08:56:21 GMT"
+  },
+  {
+    "url": "https://news.ycombinator.com/news",
+    "statusCode": 200,
+    "contentLength": 0,
+    "requestDuration": "589ms",
+    "date": "Fri, 16 Aug 2024 08:56:22 GMT"
+  }
+]

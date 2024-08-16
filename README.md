@@ -20,6 +20,10 @@ Here's a brief overview of the repository structure:
 |-- output.json          # Sample output JSON (generated after running the script).
 |-- error_log.txt        # Sample error log (generated after running the script with error redirection).
 |-- requirements.txt     # List of dependencies required to run the project.
+|-- .github/
+|   |-- workflows/
+|       |-- python-main.yml   # GitHub Actions workflow for running the main script.
+|       |-- python-test.yml   # GitHub Actions workflow for running unit tests.
 ```
 
 ## Development Process
@@ -76,7 +80,7 @@ After the test was written, the main function was implemented to pass the test. 
 
 ## Usage
 
-To run the program, you can use the following command:
+To run the program, you can use the following command. It saves stdout output as separate file:
 
 ```bash
 python3 src/main.py < urls.txt > output.json
@@ -84,11 +88,16 @@ python3 src/main.py < urls.txt > output.json
 
 ## Error Output
 
+To save stderr as a separate file use the following command:
+
 ```bash
 python3 src/main.py < urls.txt 2> error_log.txt
 ```
 
 ## Testing
+
+To run all tests in /tests folder:
+
 ```bash
 python3 -m unittest discover -s tests
 ```
@@ -99,7 +108,7 @@ This project utilizes **GitHub Actions** pipelines to automate testing and deplo
 
 - **Test Branch**: The `test` branch is dedicated to developing and running unit tests. In this branch, unit tests are created first, and then the corresponding functions are developed to ensure they pass these tests. The GitHub Actions pipeline automatically checks these tests, providing immediate feedback on the functionality and reliability of the code.
 
-- **Main Branch**: The `main` branch is used to verify the actual performance of the program. Here, the pipeline runs the main program using the command `python3 src/main.py < urls.txt` and checks whether the program outputs the correct results. This branch focuses on validating the real-world behavior of the code after it has passed all unit tests in the `test` branch.
+- **Main Branch**: The `main` branch is used to verify the actual performance of the program. Here, the pipeline runs the main program using the command `python3 src/main.py < urls.txt` and checks whether the program outputs the correct results (stdout and stderr). This branch focuses on validating the real-world behavior of the code after it has passed all unit tests in the `test` branch.
 
 You can view the testing outputs and actual program outputs directly in the **GitHub Actions** section of this repository. This setup ensures that the code is thoroughly tested and performs as expected before any changes are merged into the `main` branch.
 
