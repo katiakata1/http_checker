@@ -4,6 +4,23 @@
 
 This project is a command-line tool that reads a list of URLs, validates them, fetches their status and content, and outputs the results as a JSON document. The development process was guided by a test-first approach, ensuring robust and reliable code.
 
+## Repository Structure
+
+Here's a brief overview of the repository structure:
+```bash
+|-- src/
+|   |-- main.py          # The main script that processes URLs and outputs the results as JSON.
+|   |-- utils.py         # Utility functions, including URL validation and fetching logic.
+|
+|-- tests/
+|   |-- test_main.py     # Unit tests for the main function.
+|   |-- test_utils.py    # Unit tests for utility functions (validation and fetching).
+|
+|-- urls.txt             # Sample input file containing URLs to be processed.
+|-- output.json          # Sample output JSON (generated after running the script).
+|-- error_log.txt        # Sample error log (generated after running the script with error redirection).
+```
+
 ## Development Process
 
 The development process for this project followed a test-driven development (TDD) methodology. Below are the key steps taken to build the application:
@@ -62,3 +79,18 @@ To run the program, you can use the following command:
 
 ```bash
 python3 src/main.py < urls.txt > output.json
+```
+
+## Error Output
+
+```bash
+python3 src/main.py < urls.txt 2> error_log.txt
+```
+
+## Testing
+```bash
+python3 -m unittest discover -s tests
+```
+
+
+
